@@ -1,0 +1,172 @@
+
+/*
+ * ===================================
+ * 1. ESTILOS GERAIS E TIPOGRAFIA
+ * ===================================
+ */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Fundo suave */
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #007bff; /* Azul primário */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/*
+ * ===================================
+ * 2. LAYOUT PRINCIPAL (Flexbox)
+ * ===================================
+ */
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    gap: 30px; /* Espaçamento entre as colunas */
+}
+
+/* Coluna de Produtos ocupa 70% do espaço */
+#lista-produtos {
+    flex: 3; /* Ocupa 3 partes do espaço disponível */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Coluna do Carrinho ocupa 30% do espaço */
+#carrinho {
+    flex: 1; /* Ocupa 1 parte do espaço disponível */
+    padding: 20px;
+    background-color: #e9ecef; /* Fundo leve para o carrinho */
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    height: fit-content; /* Garante que a altura se ajuste ao conteúdo */
+    position: sticky;
+    top: 20px; /* Mantém o carrinho visível ao rolar */
+}
+
+/*
+ * ===================================
+ * 3. ESTILOS DE PRODUTOS E ITENS
+ * ===================================
+ */
+
+.produto-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.produto-item:last-child {
+    border-bottom: none; /* Remove a linha do último item */
+}
+
+.produto-info {
+    flex-grow: 1;
+}
+
+.produto-nome {
+    font-weight: bold;
+    color: #495057;
+}
+
+.produto-preco {
+    color: #28a745; /* Verde para destaque de preço */
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+.carrinho-item {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ced4da;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carrinho-item-info {
+    flex-grow: 1;
+}
+
+/*
+ * ===================================
+ * 4. BOTÕES E TOTAL
+ * ===================================
+ */
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    margin-left: 10px;
+}
+
+.btn-adicionar {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+.btn-adicionar:hover {
+    background-color: #218838;
+}
+
+.btn-remover {
+    background-color: #dc3545; /* Vermelho */
+    color: white;
+    padding: 5px 10px; /* Botão menor no carrinho */
+}
+
+.btn-remover:hover {
+    background-color: #c82333;
+}
+
+#carrinho-total {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #adb5bd;
+    font-size: 1.3em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*
+ * ===================================
+ * 5. MEDIA QUERIES (Responsividade)
+ * ===================================
+ */
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Colunas viram linhas em telas pequenas */
+    }
+
+    #carrinho {
+        order: -1; /* Move o carrinho para cima no mobile */
+        margin-bottom: 20px;
+        position: relative; /* Desliga o sticky no mobile */
+        top: 0;
+    }
+}
